@@ -1,8 +1,27 @@
 from pymaxwell import *
-scene = Cmaxwell(mwcallback);
-scene.readMXS('C:\Users\Joshua\Dropbox\shared\StandardMatScene 06-29\stamdardmattest06-29-speedopt.mxs');
-it = CmaxwellMaterialIterator();
-material = it.first( scene );
-while not material.isNull():
+
+def run_maxwell_render():
+	parameters = []
 	
-	material = it.next();
+	parameters.append('-mxs:C:\Users\Joshua\Documents\GitHub\MaxwellRenderMaterialTester\MatScene\standardmattest.mxs')
+	parameters.append('-res:300x200')
+	parameters.append('-time:10')
+	parameters.append('-sl:5')
+	
+	runMaxwell(parameters)
+	return 1
+
+scene = Cmaxwell(mwcallback)
+scene.readMXS('C:\Users\Joshua\Documents\GitHub\MaxwellRenderMaterialTester\MatScene\standardmattest.mxs')
+it = CmaxwellMaterialIterator()
+material = it.first( scene )
+run_maxwell_render()
+while not material.isNull():
+	run_maxwell_render()
+	material = it.next()
+
+
+
+
+
+
