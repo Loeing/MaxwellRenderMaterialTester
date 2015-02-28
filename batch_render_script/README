@@ -1,0 +1,8 @@
+Batch Rendering Script for Case HPC
+
+usage: ./batch_render.sh MXS_DIR OUTPUT_DIR [PROJECT_NAME]
+
+This script finds all the .mxs files in MXS_DIR, renders all of them with
+Maxwell Renderer using as many cluster jobs as it can without exceeding the
+license limits, and outputs the resulting png images to OUTPUT_DIR with the
+same names, plus diagnostic log files.
